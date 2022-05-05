@@ -8,12 +8,20 @@ spring:
             - Path=/httpbin/**
           filters:
             - StripPrefix=1
+        - id: ui-redirect
+          uri: no://op
+          predicates:
+            - Path=/ui, false
+          filters:
+            - RedirectTo=302, /ui/
+          order: 0
         - id: ui
           uri: http://localhost:4200
           predicates:
             - Path=/ui/**
           filters:
             - StripPrefix=1
+          order: 2147483647
 
 logging:
   level:
