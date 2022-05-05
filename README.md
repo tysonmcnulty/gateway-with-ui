@@ -4,14 +4,18 @@ This project shows how to stand up a UI application (built with the Angular fram
 
 ## Development
 
-There is a Gradle wrapper script, `gradlew`, at the root of this project. You can use it to run Gradle tasks in the subprojects.
+There is a Gradle wrapper script, `gradlew`, at the root of this project. There are two subprojects, `gateway` and `ui`, included in the root Gradle project.
 
-There are two subprojects, `gateway` and `ui`.
+There are two tasks, `build` and `run`, defined in the root project. These are exclusively for ease of development.
 
 ```shell
-./gradlew build             # run `build` in all subprojects
-./gradlew :gateway:build    # run `build` in the gateway subproject only
-./gradlew :ui:build         # run `build` in the ui subproject only
+./gradlew build             # build both apps
+./gradlew :gateway:build    # build just the gateway
+./gradlew :ui:build         # build just the UI
+
+./gradlew run               # run both apps
+./gradlew :gateway:bootRun  # run just the gateway
+./gradlew :ui:serve         # run just the UI
 ```
 
 ## Deployment
