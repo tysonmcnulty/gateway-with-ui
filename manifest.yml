@@ -1,17 +1,17 @@
 ---
 applications:
-  - name: gateway
-    memory: 1024M
-    path: gateway/build/libs/gateway-0.0.1-SNAPSHOT.jar
-    routes:
-      - route: mcnultyt-gateway.apps.dhaka.cf-app.com
-    env:
-      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
-      SPRING_PROFILES_ACTIVE: playground
-  - name: ui
-    memory: 64M
-    path: ui/dist/angular-router-sample
-    buildpacks:
-      - staticfile_buildpack
-    routes:
-      - route: mcnultyt-ui.apps.dhaka.cf-app.com
+- name: gateway
+  memory: 768M
+  path: gateway/build/libs/gateway-0.0.1-SNAPSHOT.jar
+  routes:
+  - route: ((GATEWAY_ROUTE))
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: "{ jre: { version: 11.+ } }"
+    UI_ROUTE: ((UI_ROUTE))
+- name: ui
+  memory: 64M
+  path: ui/dist/angular-router-sample
+  buildpacks:
+  - staticfile_buildpack
+  routes:
+  - route: ((UI_ROUTE))

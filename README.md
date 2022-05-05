@@ -23,11 +23,22 @@ As a prerequisite, install the CF cli:
 brew install cloudfoundry/tap/cf-cli
 ```
 
-There is a TAS manifest, `manifest.yml`, at the root of this project. 
+There is a TAS manifest, `manifest.yml`, at the root of this project. To push the app to TAS using this manifest:
 
-```
-export TAS_APP_DOMAIN=apps.dhaka.cf-app.com
-export GATEWAY_HOSTNAME=my-gateway
-export UI_HOSTNAME=my-ui
-cf push
-```
+1. Define a `vars.yml` that specifies the variables required for remote deployment.
+
+   ```yaml
+   cat > vars.yml <<EOF
+   ---
+   GATEWAY_ROUTE: my-gateway.apps.example.com
+   UI_ROUTE: my-ui.apps.example.com
+   EOF
+   ```
+
+   Replace the values in the preceding snippet with values that make sense for your deployment.
+
+2. Push to TAS using the `--vars-file` parameter.
+
+   ```
+   cf push --vars-file vars.yml
+   ```

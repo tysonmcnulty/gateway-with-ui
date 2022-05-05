@@ -1,6 +1,6 @@
 # Gateway
 
-API Gateway built with Spring Cloud Gateway
+API Gateway built with Spring Cloud Gateway.
 
 ## Development
 
@@ -16,4 +16,10 @@ gradle test
 
 ```shell
 gradle build
+```
+
+### Run
+
+```shell
+gradle bootRun
 ```

@@ -2,12 +2,6 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: httpbin
-          uri: https://httpbin.org
-          predicates:
-            - Path=/httpbin/**
-          filters:
-            - StripPrefix=1
         - id: ui-redirect
           uri: no://op
           predicates:
@@ -16,12 +10,12 @@ spring:
             - RedirectTo=302, /ui/
           order: 0
         - id: ui
-          uri: http://localhost:4200
+          uri: ${UI_ROUTE:http://localhost:4200}
           predicates:
             - Path=/ui/**
           filters:
             - StripPrefix=1
-          order: 2147483647
+          order: 1
 
 logging:
   level:
