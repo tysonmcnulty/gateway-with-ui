@@ -10,7 +10,7 @@ applications:
       SPRING_PROFILES_ACTIVE: playground
   - name: ui
     memory: 64M
-    path: angular-router-sample/dist/angular-router-sample
+    path: ui/dist/angular-router-sample
     buildpacks:
       - staticfile_buildpack
     routes:
