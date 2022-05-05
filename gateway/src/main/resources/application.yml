@@ -10,7 +10,7 @@ spring:
             - RedirectTo=302, /ui/
           order: 0
         - id: ui
-          uri: ${UI_ROUTE:http://localhost:4200}
+          uri: ${UI_SCHEME:http}://${UI_ROUTE:localhost:4200}
           predicates:
             - Path=/ui/**
           filters:

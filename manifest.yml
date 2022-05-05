@@ -8,6 +8,7 @@ applications:
   env:
     JBP_CONFIG_OPEN_JDK_JRE: "{ jre: { version: 11.+ } }"
     UI_ROUTE: ((UI_ROUTE))
+    UI_SCHEME: https
 - name: ui
   memory: 64M
   path: ui/dist/angular-router-sample
