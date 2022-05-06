@@ -8,15 +8,32 @@ There is a Gradle wrapper script, `gradlew`, at the root of this project. There 
 
 There are two tasks, `build` and `run`, defined in the root project. These are exclusively for ease of development.
 
+### Build
+
+Use the Gradle CLI to build all projects or just one subprojects:
+
 ```shell
 ./gradlew build             # build both apps
 ./gradlew :gateway:build    # build just the gateway
 ./gradlew :ui:build         # build just the UI
+```
 
+### Run
+
+Use the Gradle CLI to run these projects:
+
+```
 ./gradlew run               # run both apps
 ./gradlew :gateway:bootRun  # run just the gateway
 ./gradlew :ui:serve         # run just the UI
 ```
+
+After starting the applications with `./gradlew run`:
+
+* The gateway will be available at `http://localhost:8080`
+* The UI application will be available at `http://localhost:4200`
+
+The gateway is configured to route all requests to `/ui/**` to the gateway.
 
 ## Deployment
 
