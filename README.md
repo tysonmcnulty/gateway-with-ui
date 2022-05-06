@@ -37,12 +37,20 @@ The gateway is configured to route all requests to `/ui/**` to the gateway.
 
 ## Deployment
 
-As a prerequisite, install the CF cli:
+Prerequisites:
 
-```shell
-# Example using Homebrew
-brew install cloudfoundry/tap/cf-cli
-```
+1. Install the CF cli:
+
+   ```shell
+   # Example using Homebrew
+   brew install cloudfoundry/tap/cf-cli
+   ```
+
+2. Log in to your TAS environment:
+
+   ```shell
+   cf login -a <your_api_url>
+   ```
 
 There is a TAS manifest, `manifest.yml`, at the root of this project. To push the app to TAS using this manifest:
 
